@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/main.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<%<Hi:HeadContainer ID="HeadContainer1" runat="server" />%>
+<%<Hi:PageTitle runat="server" />%>
+<%<Hi:MetaTags runat="server" />%>
+<link href="/style/main.css" rel="stylesheet" type="text/css" />
+<link href="/style/m18.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/style/pagevalidator.css" type="text/css" media="screen" />
+<script src="/utility/jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="/utility/jquery.cookie.js" type="text/javascript"></script>
+<script src="/utility/validate/pagevalidator.js" type="text/javascript"></script>
+<script src="/utility/globals.js" type="text/javascript"></script>
+<script src="/script/web_qq.js" type="text/javascript"></script>
+</head>
+
+<body>
+<form runat="server" id="form1">
+
+<!--在线客服-->
+<div id="qq_right" style="top:30px;left:-146px;position:absolute;z-index:100;">
+<div class="a">
+  <div class="b"></div>
+  <div class="c">
+  <%<Hi:OnlineServer runat="server" />%>
+	<div class="closekf" onclick="closekf();">关闭在线客服</div>
+  </div>
+  <div class="d"></div>
+</div>
+<div class="e" id="e" onmouseover="showKefu(this);"></div>
+</div>
+<!--新top-->
+	
+	<!--{{顶部栏 开始}}-->
+	
+	<div class="head">
+
+<div class="top1">
+<div class="top1_c">
+     <span class="login_zhuangtai">
+<%<Hi:Common_CurrentUser runat="server" ID="lblCurrentUser"/>%> 
+<%<Hi:Common_MyAccountLink ID="linkMyAccount" runat="server" />%>
+<b>
+<%<Hi:Common_LoginLink ID="Common_Link_Login1" runat="server" />%>
+<%<Hi:Common_Link_OpenId runat="server" ImageUrl="images/alipay_small.png" /> %>
+</b> 
+</span>
+<span><a href="url:productunslaes">下架区</a></span>
+<span>|</span>
+<span><a href="url:distributorLogin">分销商登录</a></span>
+<span>|</span>
+<span><a href="url:LeaveComments">店铺交流区</a> </span>
+<span>|</span>
+<span><a href="url:AllHelps">帮助中心</a> </span>
+<span>|</span>
+<span><%<Hi:Common_OnlineGiftLink runat="server" text="积分商城"/> %> </span>
+</div>
+</div>
+<div class="lo_search">
+<div class="logo">
+<a href="url:home"><%<Hi:Common_Logo runat="server" />%></a>
+</div>
+<div class="search_hot">
+<div class="search">
+			<span style="display:none;"><%<Hi:Search_Class ID="Search_Class" runat="server" />%></span>
+ 
+<input type="text" Id="txt_Search_Keywords" class="input1" />
+<input type="button" value="搜索" onclick="searchs()" class="sub" />
+</div>
+
+  <script type="text/javascript">
+      function searchs() {
+          var item = $("#drop_Search_Class").val();
+          var key = $("#txt_Search_Keywords").val();
+          if (key == undefined)
+              key = "";
+
+          var url = applicationPath + "/listProduct.aspx?keywords=" + key + "&categoryId=" + item;
+          window.location.href = encodeURI(url);
+      }
+
+      $(document).ready(function() {
+          $('#txt_Search_Keywords').keydown(function(e) {
+			  if (e.keyCode == 13) {
+                  searchs();
+				  return false;
+              }
+          })
+		  $("a").not("#ty_menu_title ul a").bind("click",function(){
+		  		$.cookie("class",-2,{expires: 7, path: "/"});
+		  });
+		  $("#ty_menu_title ul a").each(function(i,k){
+					$(this).bind("click",function(){
+						var liobj=null;
+						if($(this).attr("class")==""){
+							liobj=$(this).parents("li:eq(1)");
+						}else{
+							liobj=$(this).parents("li");
+						}
+						var suoyin=$("#ty_menu_title ul li").index(liobj);
+						$.cookie("class",suoyin,{expires: 7, path: "/"});
+					});
+		  });
+
+		  if($.cookie("class")!=null&&$.cookie("class")!="undefined"&&document.forms[0].action.indexOf("default.aspx")<0&&$.cookie("class")!=-2){
+		  		$("#ty_menu_title ul li:eq("+$.cookie("class")+") a:eq(0)").attr("class","ty_menu_select");
+		  }else if($.cookie("class")==-2){
+		  		$.cookie("class",null,{expires: 7, path: "/"});
+		  }
+		  else{
+		  		$("#ty_menu_title ul li:eq(0) a:eq(0)").attr("class","ty_menu_select");
+		  }
+      });
+	  
+  </script>
+<div class="hot">
+<%<Hi:HotKeywords ID="HotKeywords1" runat="server" TemplateFile="/ascx/tags/Common_Comment/Skin-HotKeywords.ascx" />%></div>
+</div>
+
+</div>
+<div class="nav">
+
+<div  class="nav_c"  id="ty_menu_title">
+<ul id="nav_top" >
+<li><b><a class="drop" href="url:home"><span>首页</span></a></b></li>
+<Hi:Common_PrimaryClass runat="server" MaxCNum="7" />
+</ul>
+</div>
+</div>
+<div class="link_cart">
+<ul class="nav_link">
+<li> <a href="url:user_MyAccountSummary">我的帐户</a></li>
+<li> <a href="url:user_UserOrders">订单查询</a></li>
+<li> <a href="url:AllArticles">商城资讯</a></li>
+<li  class="qiang_icon" > <% <Hi:Common_CountDownLink runat="server" text="限时抢购"/> %></li>
+<li> <% <Hi:Common_GroupBuyLink runat="server" text="团购"/> %></li>
+<li> <% <Hi:Common_BundlingLink runat="server" text="捆绑销售"/> %></li>
+<li> <a href="url:brand">品牌专卖</a></li>
+<li><a href="url:Promotes">优惠活动中心</a></li>
+</ul>
+
+<ul class="cart_info">
+<li  class="cart_infol"></li>
+<li  class="cart_infom"><%<Hi:Common_ShoppingCart_Info runat="server" />%></li>
+<li  class="cart_go"><Hi:SiteUrl UrlName="shoppingCart" Target="_blank" runat="server"> <img src="/images/m18/cart_go.jpg" /> </Hi:SiteUrl></li>
+<li  class="cart_infor"></li>
+</ul>
+
+</div>
+
+<div class="top_banner"><Hi:Common_ShowAds runat="server" AdsName="AD1" /></div>
+</div>
+
+<div class="main">	<!-- InstanceBeginEditable name="编辑区" --><!--左栏-->
+<!--左栏-->
+<!--左栏-->
+<div class="cate_main">
+<div class="category_l">
+<div class="category_cate">
+<h2><img src="/images/m18/category_t1.jpg" /></h2>
+<%<Hi:Common_ProductCategoryList TemplateFile="/ascx/tags/Skin-Common_ProductCategoryList.ascx" runat="server" />%>
+</div>
+
+<div class="category_view">
+<h2><img src="/images/m18/category_view_t.jpg" /></h2>
+<ul>
+<%<Hi:Common_GoodsList_Browsed MaxNum="4"  runat="server" />%>
+</ul>
+</div>
+</div>
+
+<div class="category_r">
+
+	
+	<div class="category_result">
+	<div class="paixu">&nbsp;&nbsp;当前位置：<span><a href="url:home">首页</a></span> > <span><a>主题商品列表页</a></span></div>
+	<div class="result"></div>
+	</div>
+	<div class="category_pro_tab">
+	<ul class="category_pro_list">
+<%<Hi:Common_GoodsList_Subject ID="list_Common_GoodsList_Subject"  TemplateFile="/ascx/tags/Common_GoodsList/Skin-Common_GoodsList_Subject.ascx" PageSize="20" runat="server" />%>
+	</ul>
+	</div>
+	<div class="cate_pages">
+	<div class="pagination">
+<%<UI:Pager runat="server" ShowTotalPages="true" ID="pager" />%>
+	</div>
+	</div>
+
+</div>
+
+</div>
+
+	
+
+
+
+
+<!-- InstanceEndEditable --></div>
+
+<div class="footer">
+<div class="footer_ad"><Hi:Common_ShowAds runat="server" AdsName="AD19" /></div>
+<div class="foot_help">
+<ul>
+	<%<Hi:Common_Help runat="server" TemplateFile="/ascx/tags/Common_Comment/Skin-Common_Help.ascx"  />%>
+</ul>
+</div>
+<div class="foot_friendlink">
+<table width="980" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="foot_friendlinkt" valign="top">友情链接:</td>
+    <td valign="top"><div class="foot_friendlinkc"><%<Hi:Common_FriendLinks runat="server" TemplateFile="/ascx/tags/Common_Comment/Skin-Common_FriendLinks.ascx" />%></div></td>
+  </tr>
+</table>	
+</div>
+<div  class="footer_info">
+<div><%<Hi:PageFooter runat="server" />%></div>
+<%<Hi:CnzzShow runat="server" />%>
+</div>
+
+</div>
+
+</form>
+</body>
+<!-- InstanceEnd --></html>

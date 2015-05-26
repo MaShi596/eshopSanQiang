@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <version>1.0</version>
+  <modified>2014-01-10 09:59:06</modified>
+  <seller_id>
+  </seller_id>
+  <cat_url>http://demo1.shopefx.com/Storage/Root/1230/SellerCats.xml</cat_url>
+  <dir>http://demo1.shopefx.com/Storage/Root/1230/Item_Inc/</dir>
+  <item_ids>
+    <outer_id action="upload">699</outer_id>
+  </item_ids>
+</root>

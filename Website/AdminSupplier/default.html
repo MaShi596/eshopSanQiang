@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="x-ua-compatible" content="ie=7" />
+
+<script src="../Utility/jquery-1.6.4.min.js"></script>
+<script src="../Utility/jquery.cookie.js"></script>
+<script src="../Utility/jquery.artDialog.js"></script>
+<script src="../Utility/iframeTools.js"></script>
+<script src="Frame.js"></script>
+<link rel="stylesheet" type="text/css" href="../admin/css/frame.css">
+<link rel="stylesheet" type="text/css" href="../Utility/skins/blue.css">
+<title>无标题文档</title>
+    <script>
+        //IFrame弹出
+        function DialogFrame(url, title_tip, w_width, h_height) {
+            var tmpwidth = 900;
+            var tmpheight = 520;
+            if (w_width != null) {
+                tmpwidth = w_width;
+            }
+            if (h_height != null) {
+                tmpheight = h_height;
+            }
+            if (tmpwidth != 0) {
+                if (tmpheight != 0) {
+                    art.dialog.open(url, { title: title_tip, width: tmpwidth, height: tmpheight }, true);
+                } else {
+                    art.dialog.open(url, { title: title_tip, width: tmpwidth }, true);
+                }
+            } else {
+                if (tmpheight != 0) {
+                    art.dialog.open(url, { title: title_tip, height: tmpheight }, true);
+                } else {
+                    art.dialog.open(url, { title: title_tip }, true);
+                }
+            }
+
+            $("#hidFramUrl").val("");
+        }
+
+        function FramLinkTo() {
+            var FramLinkToUrl = $("#hidFramUrl").val();
+            $("#hidFramUrl").val("");
+
+            if (FramLinkToUrl != undefined && FramLinkToUrl != "") {
+                var currentDate = new Date();
+                if (FramLinkToUrl.indexOf("?") != -1) {
+
+                    if (FramLinkToUrl.indexOf("ttt") == -1)
+                        FramLinkToUrl = FramLinkToUrl + "&ttt=" + currentDate.getTime();
+                    else
+                        FramLinkToUrl = FramLinkToUrl.substring(0, FramLinkToUrl.indexOf("ttt")) + "&ttt=" + currentDate.getTime();
+                }
+                else
+                    FramLinkToUrl = FramLinkToUrl + "?ttt=" + currentDate.getTime();
+
+                $("#frammain").attr("src", FramLinkToUrl);
+            }
+        }
+
+        function FramLinkToSet(url) {
+            $("#hidFramUrl").val(url);
+        }
+
+    </script>
+</head>
+<body>
+
+<div class="hishop_head">
+    <input type="hidden" id="hidFramUrl" />
+	<div class="hishop_logo"><img src="../admin/images/logogo.png" class="pngFix" /></div>
+	<div class="hishop_banner">
+    	<div class="hishop_con2"> 
+			<div class="hishop_banneritem">
+				<p>
+					<img src="../admin/images/ren.png" /> <a>shop</a>,欢迎回来 供应商：<a><font color="#FBD711">admin</font></a>　<a href="LoginExit.aspx"><strong>[安全退出]</strong></a>
+				</p>
+			</div>
+			<div class="hishop_menu" style="float:left;margin-top:42px;">
+				<a onclick="ShowMenuLeft('商 品',null,null)">商 品</a>
+                <a onclick="ShowMenuLeft('发货单',null,null)">发货单</a>
+                <a onclick="ShowMenuLeft('个人信息',null,null)">个人信息</a>
+			</div>
+        </div>
+	</div>
+</div>
+
+<div class="hishop_content">
+	<div class="hishop_menu_scroll">
+		<div id="menu_left">
+
+		</div>
+	</div>
+	<div id="menu_arrow" class="close_arrow" onclick="javascript:ExpendMenuLeft()" style="display:none"></div>
+	<div class="hishop_content_r">
+		<iframe id="frammain" name="frammain" class="framecontent" runat="server" src="../admin/cpage/supplier/supplier_admin_shiporders.aspx" frameborder="no" border="0" scrolling="auto"></iframe>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <version>1.0</version>
+  <modified>2013-12-17 16:28:24</modified>
+  <seller_id>
+  </seller_id>
+  <cat_url>http://test.china.92hidc.net/Storage/Root/1208/SellerCats.xml</cat_url>
+  <dir>http://test.china.92hidc.net/Storage/Root/1208/Item_Full/</dir>
+  <item_ids>
+    <outer_id action="upload">637</outer_id>
+    <outer_id action="upload">698</outer_id>
+    <outer_id action="upload">702</outer_id>
+  </item_ids>
+</root>

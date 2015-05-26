@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Menu>
+  
+  <Module Title="发货单" Link="../admin/cpage/supplier/supplier_admin_shiporders.aspx">
+    <Item Title="发货单管理">
+      <PageLink  Title="发货单列表" privilege="5001" Link="../admin/cpage/supplier/supplier_admin_shiporders.aspx"/>
+    </Item>
+  </Module>
+  
+  <Module Title="个人信息" Link="../admin/cpage/supplier/supplieradmin/supplier_supplier_editpassword.aspx">
+    <Item Title="安全信息">
+      <PageLink  Title="修改登录密码" privilege="5001" Link="../admin/cpage/supplier/supplieradmin/supplier_supplier_editpassword.aspx"/>
+    </Item>
+  </Module>
+</Menu>

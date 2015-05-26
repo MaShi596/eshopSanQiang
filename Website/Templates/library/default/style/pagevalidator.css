@@ -1,0 +1,10 @@
+.msgNormal{background:url(validate_normal.gif) no-repeat; width:280px; padding-left:25px;padding-top:5px;padding-bottom:3px;color:#999999; font-size:12px; }
+.msgNormal br{display:none;}
+.msgOnFocus{background:#E9F0FF url(validate_waring.gif) no-repeat; width:280px; padding-left:25px;padding-top:5px;padding-bottom:3px;font-size:12px; }
+.msgOnFocus br{display:none;}
+.msgError{background:#FFF2E9 url(validate_error.gif) no-repeat; width:280px; padding-left:25px;padding-top:5px;padding-bottom:3px;font-size:12px; }
+.msgError br{display:none;}
+.msgError a{color:red;}
+.msgOK{background:#E9FFEB url(validate_success.gif) no-repeat; width:280px; padding-left:25px;padding-top:5px;padding-bottom:3px;font-size:12px;  }
+.msgOK br{display:none;}
+.msgAjaxing{background:#E9FFEB url(spinner.gif) no-repeat 3px 3px; padding-left:25px;padding-top:5px;padding-bottom:3px;font-size:12px; } 

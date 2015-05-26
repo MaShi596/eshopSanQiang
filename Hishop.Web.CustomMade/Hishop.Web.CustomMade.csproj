@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{39225495-69EE-47D4-96CD-C3D1D53CEB13}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hishop.Web.CustomMade</RootNamespace>
+    <AssemblyName>Hishop.Web.CustomMade</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\Website\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\Website\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Supplier\Supplier_QueryInfo.cs" />
+    <Compile Include="Methods.cs" />
+    <Compile Include="Supplier_DBLabel_PtSaleStatus.cs" />
+    <Compile Include="Supplier_DBLabel_SendGoodStatus.cs" />
+    <Compile Include="Supplier_DBLabel_ShipOrderStatus.cs" />
+    <Compile Include="Supplier_Drop_OrderType.cs" />
+    <Compile Include="Supplier_Drop_SupplierGrades.cs" />
+    <Compile Include="Supplier_Drop_Suppliers.cs" />
+    <Compile Include="Supplier_GridSkuDistributorPriceTable.cs" />
+    <Compile Include="Supplier_GridSkuMemberPriceTable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hidistro.ControlPanel.Commodities\Hidistro.ControlPanel.Commodities.csproj">
+      <Project>{834EB711-8765-4148-86D5-8628B6D60A18}</Project>
+      <Name>Hidistro.ControlPanel.Commodities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hidistro.ControlPanel.Sales\Hidistro.ControlPanel.Sales.csproj">
+      <Project>{AD4564A6-F85D-4B8A-B69A-F515BDD03B16}</Project>
+      <Name>Hidistro.ControlPanel.Sales</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hidistro.ControlPanel.Store\Hidistro.ControlPanel.Store.csproj">
+      <Project>{27C38F66-6471-4A56-9C07-938E82217057}</Project>
+      <Name>Hidistro.ControlPanel.Store</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hidistro.Core\Hidistro.Core.csproj">
+      <Project>{88B01CDB-94B1-4D7C-8CD9-6AA62905FF18}</Project>
+      <Name>Hidistro.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hidistro.Entities\Hidistro.Entities.csproj">
+      <Project>{FE67F3C3-F988-42F7-AC23-7F94367096DC}</Project>
+      <Name>Hidistro.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hidistro.Membership.Context\Hidistro.Membership.Context.csproj">
+      <Project>{6E28F952-5B92-404C-9282-72525EA680B5}</Project>
+      <Name>Hidistro.Membership.Context</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hidistro.Membership.Core\Hidistro.Membership.Core.csproj">
+      <Project>{7249448C-6615-41AF-A18E-B2301482B9F6}</Project>
+      <Name>Hidistro.Membership.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hidistro.SaleSystem.Shopping\Hidistro.SaleSystem.Shopping.csproj">
+      <Project>{C3FB2D68-9DD4-4DEB-B998-CEFD644B8C24}</Project>
+      <Name>Hidistro.SaleSystem.Shopping</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

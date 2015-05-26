@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <version>1.0</version>
+  <modified>2014-01-14 10:46:04</modified>
+  <seller_id>
+  </seller_id>
+  <seller_cats>
+    <cat>
+      <scid>1</scid>
+      <name>新车销售</name>
+    </cat>
+    <cat>
+      <scid>2</scid>
+      <name>汽车美容</name>
+    </cat>
+    <cat>
+      <scid>3</scid>
+      <name>其它</name>
+      <cats>
+        <cat>
+          <scid>10</scid>
+          <name>蓝牙耳机</name>
+        </cat>
+      </cats>
+    </cat>
+    <cat>
+      <scid>4</scid>
+      <name>汽车精品</name>
+    </cat>
+    <cat>
+      <scid>5</scid>
+      <name>汽车清洗</name>
+    </cat>
+    <cat>
+      <scid>6</scid>
+      <name>汽车装饰</name>
+    </cat>
+    <cat>
+      <scid>7</scid>
+      <name>汽车养护</name>
+    </cat>
+    <cat>
+      <scid>8</scid>
+      <name>汽车精品</name>
+    </cat>
+    <cat>
+      <scid>9</scid>
+      <name>汽车电器</name>
+    </cat>
+  </seller_cats>
+</root>
