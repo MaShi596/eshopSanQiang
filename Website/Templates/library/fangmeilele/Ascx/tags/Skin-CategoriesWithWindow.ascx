@@ -13,13 +13,17 @@
         <input type="hidden" runat="server" ID="hidMainCategoryId" value='<%#Eval("CategoryId")%>' />	
 	    <div class="my_left_cat_list">
 		<div id='<%# "twoCategory_" + Eval("CategoryId")%>' class="h2_cat" onmouseover="this.className='h2_cat active_cat'" onmouseout="this.className='h2_cat'" >
-		   <h3>  <div class="c_feilei"><em><img src="<%#Eval("Icon")%>"> </em> <a href='<%# Globals.GetSiteUrls().SubCategory(Convert.ToInt32(Eval("CategoryId")), Eval("RewriteName")) %>'><%# Eval("Name")%></a>    </div>
+		   <h3>  <div class="c_feilei"><em><img alt = "MS"  src="<%#Eval("Icon")%>"> </em> <a href='<%# Globals.GetSiteUrls().SubCategory(Convert.ToInt32(Eval("CategoryId")), Eval("RewriteName")) %>'><%# Eval("Name")%></a>   </div>
            
-           <div class="c_keywords"> <asp:Repeater runat="server" ID="rphotkey">
+           <div class="c_keywords"> 
+           
+            <asp:Repeater runat="server" ID="rphotkey">
             <ItemTemplate>
             	<a href='<%# Globals.GetSiteUrls().SubCategory(Convert.ToInt32(Eval("CategoryId")),null) %>?keywords=<%# Globals.UrlEncode((string)Eval("Keywords")) %>'><%# Eval("Keywords")%></a>
             </ItemTemplate>
-            </asp:Repeater></div>
+            </asp:Repeater>
+            
+            </div>
            </h3>
            
          
@@ -30,7 +34,7 @@
 				    <div class="shadow_border">
 					    <ul>
 					        <span  class="brand" >
-                               <h5>品牌推荐：<b><a href='<%# Globals.GetSiteUrls().UrlData.FormatUrl("brand")%>'>更多品牌>></a></b></h5>
+                               <h5>品牌品牌推荐：<b><a href='<%# Globals.GetSiteUrls().UrlData.FormatUrl("brand")%>'>更多品牌>></a></b></h5>
                                <asp:Repeater runat="server" ID="recordsbrands">
                                     <ItemTemplate>
                                          <a href='<%# Globals.GetSiteUrls().UrlData.FormatUrl("branddetails",Eval("BrandId"))%>'><%# Eval("BrandName")%></a>                           

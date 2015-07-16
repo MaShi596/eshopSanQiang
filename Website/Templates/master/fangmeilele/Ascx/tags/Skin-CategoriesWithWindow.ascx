@@ -13,14 +13,20 @@
         <input type="hidden" runat="server" ID="hidMainCategoryId" value='<%#Eval("CategoryId")%>' />	
 	    <div class="my_left_cat_list">
 		<div id='<%# "twoCategory_" + Eval("CategoryId")%>' class="h2_cat" onmouseover="this.className='h2_cat active_cat'" onmouseout="this.className='h2_cat'" >
-		   <h3>  <div class="c_feilei"><em><img src="<%#Eval("Icon")%>"> </em> <a href='<%# Globals.GetSiteUrls().SubCategory(Convert.ToInt32(Eval("CategoryId")), Eval("RewriteName")) %>'><%# Eval("Name")%></a>    </div>
+		   <h3>  
+           
+           <div class="c_feilei"> <img  alt=""src="<%#Eval("Icon")%>"> <a href='<%# Globals.GetSiteUrls().SubCategory(Convert.ToInt32(Eval("CategoryId")), Eval("RewriteName")) %>'><%# Eval("Name")%></a>    </div>
            
            <div class="c_keywords"> <asp:Repeater runat="server" ID="rphotkey">
             <ItemTemplate>
-            	<a href='<%# Globals.GetSiteUrls().SubCategory(Convert.ToInt32(Eval("CategoryId")),null) %>?keywords=<%# Globals.UrlEncode((string)Eval("MetaKeywords")) %>'><%# Eval("MetaKeywords")%></a>
+            	<a href='<%# Globals.GetSiteUrls().SubCategory(Convert.ToInt32(Eval("CategoryId")),null) %>?keywords=<%# Globals.UrlEncode((string)Eval("Name")) %>'>
+                <%# Eval("Name")%>
+                </a>
             </ItemTemplate>
             </asp:Repeater>
-            </div>
+           </div>
+
+
            </h3>
            
          
