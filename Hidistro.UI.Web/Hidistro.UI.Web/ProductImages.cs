@@ -8,6 +8,7 @@ using System;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+
 namespace Hidistro.UI.Web
 {
 	public class ProductImages : System.Web.UI.Page
@@ -16,6 +17,7 @@ namespace Hidistro.UI.Web
 		protected Script Script1;
 		protected System.Web.UI.HtmlControls.HtmlForm form1;
 		protected System.Web.UI.WebControls.HyperLink productName;
+        protected System.Web.UI.WebControls.HyperLink productIn3D;
 		protected SiteUrl SiteUrl1;
 		protected System.Web.UI.HtmlControls.HtmlInputText image1url;
 		protected System.Web.UI.HtmlControls.HtmlInputText image2url;
@@ -49,8 +51,14 @@ namespace Hidistro.UI.Web
 		}
 		private void BindImages(ProductInfo prductImageInfo)
 		{
-			this.productName.Text = prductImageInfo.ProductName;
+
+            this.productIn3D.Text = "3D图样";
+            this.productIn3D.NavigateUrl = Globals.ApplicationPath + "/image3D/" + prductImageInfo.ProductId.ToString() + "//" + "index.html";//Utils.ApplicationPath + "/Product3D.aspx?ProductId=" + prductImageInfo.ProductId;
+           
+
+            this.productName.Text = prductImageInfo.ProductName;
 			this.productName.NavigateUrl = Utils.ApplicationPath + "/ProductDetails.aspx?ProductId=" + prductImageInfo.ProductId;
+
 			this.imgBig.Src = (this.image1url.Value = Utils.ApplicationPath + prductImageInfo.ImageUrl1);
 			this.image2url.Value = Utils.ApplicationPath + prductImageInfo.ImageUrl2;
 			this.image3url.Value = Utils.ApplicationPath + prductImageInfo.ImageUrl3;

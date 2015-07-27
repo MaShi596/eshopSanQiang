@@ -76,7 +76,7 @@ namespace Hidistro.UI.Web.Shopadmin
 					this.litlShipOrderNumber.Text = this.txtShipOrderNumber.Text;
 					return;
 				}
-				this.htmlContent2.Attributes.Add("style", "display:none");
+				//this.htmlContent2.Attributes.Add("style", "display:none");
 			}
 		}
 		private void BindOrderItems(OrderInfo order)

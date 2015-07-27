@@ -36,8 +36,13 @@ namespace Hidistro.UI.Web.Shopadmin
 				return;
 			}
 			this.btnSaveCategory.Click += new System.EventHandler(this.btnSaveCategory_Click);
-			this.btnPicDelete.Click += new System.EventHandler(this.btnPicDelete_Click);
-			if (!this.Page.IsPostBack)
+			
+            //this.btnPicDelete.Click += new System.EventHandler(this.btnPicDelete_Click);
+			
+
+
+
+            if (!this.Page.IsPostBack)
 			{
 				CategoryInfo category = SubsiteCatalogHelper.GetCategory(this.categoryId);
 				this.dropProductTypes.DataBind();
@@ -80,19 +85,19 @@ namespace Hidistro.UI.Web.Shopadmin
 				this.ShowMsg("编缉商品分类错误,未知", false);
 				return;
 			}
-			if (this.fileUpload.HasFile)
-			{
-				try
-				{
-					ResourcesHelper.DeleteImage(category.Icon);
-					category.Icon = SubsiteCatalogHelper.UploadCategoryIcon(this.fileUpload.PostedFile);
-				}
-				catch
-				{
-					this.ShowMsg("图片上传失败，您选择的不是图片类型的文件，或者网站的虚拟目录没有写入文件的权限", false);
-					return;
-				}
-			}
+            //if (this.fileUpload.HasFile)
+            //{
+            //    try
+            //    {
+            //        ResourcesHelper.DeleteImage(category.Icon);
+            //        category.Icon = SubsiteCatalogHelper.UploadCategoryIcon(this.fileUpload.PostedFile);
+            //    }
+            //    catch
+            //    {
+            //        this.ShowMsg("图片上传失败，您选择的不是图片类型的文件，或者网站的虚拟目录没有写入文件的权限", false);
+            //        return;
+            //    }
+            //}
 			category.AssociatedProductType = this.dropProductTypes.SelectedValue;
 			category.Name = this.txtCategoryName.Text;
 			category.RewriteName = this.txtRewriteName.Text;
@@ -170,9 +175,9 @@ namespace Hidistro.UI.Web.Shopadmin
                 this.fckNotes1.Text = categoryInfo.Notes1;
                 this.fckNotes2.Text = categoryInfo.Notes2;
                 this.fckNotes3.Text = categoryInfo.Notes3;
-				this.imgPic.ImageUrl = categoryInfo.Icon;
-				this.btnPicDelete.Visible = !string.IsNullOrEmpty(this.imgPic.ImageUrl);
-				this.imgPic.Visible = !string.IsNullOrEmpty(this.imgPic.ImageUrl);
+				//this.imgPic.ImageUrl = categoryInfo.Icon;
+				//this.btnPicDelete.Visible = !string.IsNullOrEmpty(this.imgPic.ImageUrl);
+				//this.imgPic.Visible = !string.IsNullOrEmpty(this.imgPic.ImageUrl);
 			}
 		}
 	}

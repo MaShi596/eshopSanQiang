@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using System.IO;
+using Ionic.Zip;
 namespace Hidistro.UI.Web.Admin
 {
 	[PrivilegeCheck(Privilege.AddProducts)]
@@ -45,6 +47,13 @@ namespace Hidistro.UI.Web.Admin
 		protected ImageUploader uploader3;
 		protected ImageUploader uploader4;
 		protected ImageUploader uploader5;
+
+
+        protected Button btnUpload2;
+      
+        protected System.Web.UI.WebControls.FileUpload fileTemplate;
+
+
 		protected TrimTextBox txtShortDescription;
 		protected KindeditorControl editDescription;
 		protected System.Web.UI.WebControls.CheckBox ckbIsDownPic;
@@ -68,6 +77,10 @@ namespace Hidistro.UI.Web.Admin
 		}
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
+
+
+         
+
 			if (!string.IsNullOrEmpty(base.Request.QueryString["isCallback"]) && base.Request.QueryString["isCallback"] == "true")
 			{
 				base.DoCallback();
@@ -381,5 +394,9 @@ namespace Hidistro.UI.Web.Admin
 			}
 			return true;
 		}
+
+
+      
+       
 	}
 }
