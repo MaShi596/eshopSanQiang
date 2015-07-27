@@ -116,10 +116,15 @@
                 </div>
                 <p class="Pa_198 clearfix">图片应小于120k，jpg,gif,jpeg,png或bmp格式。建议为500x500像素</p>
             </li>
+
+
             <li class="clearfix"><span class="formitemtitle Pw_198">商品简介：</span>
                 <Hi:TrimTextBox runat="server" Rows="6" Height="100px" Columns="76" ID="txtShortDescription" TextMode="MultiLine" />
                 <p class="Pa_198">限定在300个字符以内</p>
             </li>
+
+          
+
             <li class="clearfix"><span class="formitemtitle Pw_198">商品描述：</span>
                <Kindeditor:KindeditorControl ID="editDescription" runat="server" Height="300"  />
                <p style="color:Red;"><asp:CheckBox runat="server" ID="ckbIsDownPic" Text="是否下载商品描述外站图片" /></p>
@@ -241,6 +246,11 @@
 //                $(this).val(valueInput);              
 //             });            
            }
-           $(document).ready(function() { InitValidators(); });
+           $(document).ready(function () { InitValidators(); });
+
+
+       
   </script>     
+
+  
 </asp:Content>

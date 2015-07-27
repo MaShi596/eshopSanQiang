@@ -124,6 +124,23 @@
                 </div>
                 <p class="Pa_198 clearfix"m_none>图片应小于120k，jpg,gif,jpeg,png或bmp格式。建议为500x500像素</p>
             </li>
+
+              <li class="clearfix"><span class="formitemtitle Pw_198">上传3D展示内容：</span>
+               
+               <div class="uploadimages">
+               <asp:FileUpload ID="fileTemplate" runat="server" />
+                <asp:Button ID="btnUpload2" runat="server" Text="上传" CssClass="submit_DAqueding" OnClientClick="javascript:return CheckUpload('fileTemplate');"/>
+                  
+                <asp:HyperLink ID="image3Durl" runat="server" Target="_blank"></asp:HyperLink>
+                 
+               </div>
+
+
+                <p class="Pa_198">上传文件必须为zip格式，压缩包中的网页名必须为index.html，并且只有一级目录</p>
+            </li>
+
+
+
             <li class="clearfix"><span class="formitemtitle Pw_198">商品简介：</span>
                 <Hi:TrimTextBox runat="server" Rows="6" Height="100px" Columns="76" ID="txtShortDescription" TextMode="MultiLine" />
                 <p class="Pa_198">限定在300个字符以内</p>
@@ -234,7 +251,17 @@
             initValid(new InputValidator('ctl00_contentHolder_txtMetaDescription', 0, 260, true, null, '详细页描述长度限制在260个字符以内'));
             initValid(new InputValidator('ctl00_contentHolder_txtMetaKeywords', 0, 160, true, null, '详细页搜索关键字长度限制在160个字符以内'));
         }
-        $(document).ready(function() { InitValidators(); });
+        $(document).ready(function () { InitValidators(); });
+
+
+        function CheckUpload(filecontrol) {
+            if ($("#ctl00_contentHolder_" + filecontrol).val().replace(/\s/g, "").length <= 0) {
+                alert("请选择要上传的文件");
+                return false;
+            }
+        }
+
+
     </script>
     <script type="text/javascript" src="attributes.helper.js"></script>
     <script type="text/javascript" src="grade.price.helper.js"></script>

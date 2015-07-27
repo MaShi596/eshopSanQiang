@@ -175,7 +175,7 @@ namespace Hidistro.UI.SaleSystem.Tags
 				}
 				if (!string.IsNullOrEmpty(this.imageInfo.ImageUrl5))
 				{
-					string navigateUrl = Globals.ApplicationPath + this.imageInfo.ImageUrl1 + this.imageInfo.ImageUrl5;
+					string navigateUrl = Globals.ApplicationPath +  this.imageInfo.ImageUrl5;
 					if (this.imageInfo.ImageUrl5.IndexOf("http://") >= 0 && !string.IsNullOrEmpty(Globals.ApplicationPath))
 					{
 						text = text.Replace(Globals.ApplicationPath, "");

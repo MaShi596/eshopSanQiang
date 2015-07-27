@@ -13,6 +13,9 @@ using System.Globalization;
 using System.Text;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using System.IO;
+using Ionic.Zip;
+using Hishop.Plugins;
 namespace Hidistro.UI.Web.Admin
 {
 	[PrivilegeCheck(Privilege.EditProducts)]
@@ -50,7 +53,15 @@ namespace Hidistro.UI.Web.Admin
 		protected ImageUploader uploader3;
 		protected ImageUploader uploader4;
 		protected ImageUploader uploader5;
-		protected TrimTextBox txtShortDescription;
+
+        protected Button btnUpload2;
+        protected System.Web.UI.WebControls.FileUpload fileTemplate;
+        protected System.Web.UI.WebControls.HyperLink image3Durl;
+
+
+
+
+        protected TrimTextBox txtShortDescription;
 		protected KindeditorControl fckDescription;
 		protected System.Web.UI.WebControls.CheckBox ckbIsDownPic;
 		protected System.Web.UI.WebControls.RadioButton radOnSales;
@@ -74,6 +85,13 @@ namespace Hidistro.UI.Web.Admin
 		}
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
+
+
+
+            this.btnUpload2.Click += new System.EventHandler(this.btnUpload2_Click);
+
+           
+
 			int.TryParse(base.Request.QueryString["productId"], out this.productId);
 			int.TryParse(base.Request.QueryString["categoryId"], out this.categoryId);
 			if (!this.Page.IsPostBack)
@@ -122,6 +140,20 @@ namespace Hidistro.UI.Web.Admin
 				this.dropBrandCategories.DataBind();
 				this.LoadProduct(productDetails, attrs);
 			}
+
+            string text2 = this.Page.Request.MapPath(Globals.ApplicationPath + "/image3D/" + this.productId.ToString() + "//" + "index.html");
+
+            if (File.Exists(text2))
+            {
+                this.image3Durl.Text = "点击查看";
+                this.image3Durl.NavigateUrl = Globals.ApplicationPath + "/image3D/" + productId.ToString() + "//" + "index.html";
+
+            }
+            else
+            {
+                this.image3Durl.Text = "";
+
+            }
 		}
 		private void btnSave_Click(object sender, System.EventArgs e)
 		{
@@ -595,5 +627,65 @@ namespace Hidistro.UI.Web.Admin
 				expr_97B.Text += "</gradePrices></xml>";
 			}
 		}
+
+
+
+        protected void btnUpload2_Click(object sender, System.EventArgs e)
+        {
+            //string text = this.hdtempname.Value.Trim();
+            //if (string.IsNullOrEmpty(text))
+            //{
+            //    this.ShowMsg("无法获取对应模板名称,请重新上传", false);
+            //    return;
+            //}
+            if (this.fileTemplate.PostedFile.ContentLength == 0 || (this.fileTemplate.PostedFile.ContentType != "application/x-zip-compressed" && this.fileTemplate.PostedFile.ContentType != "application/zip" && this.fileTemplate.PostedFile.ContentType != "application/octet-stream"))
+            {
+                this.ShowMsg("请上传正确的数据包文件", false);
+                return;
+            }
+            string fileName = System.IO.Path.GetFileName(this.fileTemplate.PostedFile.FileName);
+            //if (!fileName.Equals(text + ".zip"))
+            //{
+            //    this.ShowMsg("上传的模板压缩名与原模板名不一致", false);
+            //    return;
+            //}
+            string text2 = this.Page.Request.MapPath(Globals.ApplicationPath + "/image3D/");
+            string old = this.Page.Request.MapPath(Globals.ApplicationPath);
+
+            //+ Hidistro.Membership.Context.HiContext.Current.User.UserId.ToString());
+            string newname =  System.IO.Path.Combine(text2,this.productId.ToString()+".zip");
+
+            string text3 = System.IO.Path.Combine(old, fileName);
+            this.fileTemplate.PostedFile.SaveAs(text3);
+            File.Move(text3,newname);
+            System.IO.File.Delete(text3);
+            this.PrepareDataFiles(text2, new object[]
+			{
+				newname
+			});
+            System.IO.File.Delete(newname);
+            //this.UserTemplate(text);
+            //this.GetThemes(Hidistro.Membership.Context.SettingsManager.GetSiteSettings(Hidistro.Membership.Context.HiContext.Current.User.UserId).Theme);
+            this.ShowMsg("上传成功！", true);
+            //this.hdtempname.Value = "";
+        }
+        private string PrepareDataFiles(string _datapath, params object[] initParams)
+        {
+            string path = (string)initParams[0];
+            DirectoryInfo info = new DirectoryInfo(_datapath);
+            DirectoryInfo info2 = info.CreateSubdirectory(Path.GetFileNameWithoutExtension(path));
+            using (ZipFile file = ZipFile.Read(Path.Combine(info.FullName, path)))
+            {
+                foreach (ZipEntry entry in file)
+                {
+                    entry.Extract(info2.FullName, ExtractExistingFileAction.OverwriteSilently);
+                }
+            }
+            return info2.FullName;
+        }
+
+
+
+
 	}
 }

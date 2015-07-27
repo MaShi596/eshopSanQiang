@@ -74,9 +74,17 @@ namespace Hidistro.UI.SaleSystem.Tags
 			repeater2.DataBind();
 			repeater.DataSource = CategoryBrowser.GetMaxSubCategories(int.Parse(htmlInputHidden.Value), 1000);
 			repeater.DataBind();
-            this.rphotkey.DataSource = CategoryBrowser.GetMaxSubCategories(int.Parse(htmlInputHidden.Value), 3);
-            rphotkey.DataBind();
-		}
+
+            IList<CategoryInfo> i = CategoryBrowser.GetMaxSubCategories(int.Parse(htmlInputHidden.Value), 3);
+
+            if (i.Count > 0)
+            {
+                this.rphotkey.DataSource = i;
+
+               
+                rphotkey.DataBind();
+            }
+        }
 		private void recordstwo_ItemDataBound(object sender, RepeaterItemEventArgs e)
 		{
 			Control control = e.Item.Controls[0];

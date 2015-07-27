@@ -145,7 +145,13 @@
         <div class="topNav">
             <ul>
                 <asp:HyperLink ID="productName" runat="server"></asp:HyperLink>
+                
+                <asp:HyperLink ID="productIn3D" Target="_blank" runat="server"></asp:HyperLink>
+                
+
                 <Hi:SiteUrl ID="SiteUrl1" UrlName="home" runat="server">返回首页</Hi:SiteUrl>
+
+
                 <a href="javascript:history.back(-1);">返回商品页</a>
             </ul>
         </div>
