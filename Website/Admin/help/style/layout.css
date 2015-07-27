@@ -35,7 +35,7 @@ a:hover{color:#0000FF;text-decoration:underline;}
 .guide_con ul li{ float:left; width:100px; overflow:hidden; margin-right:30px; margin-bottom:20px;display:inline;}
 
 .guide_con_about{width:480px;margin:0px atuo;overflow:hidden;font-family:"Microsoft yahei";line-height:20px;color:#000000;}
-.copyright{font-size:16px;margin-left:15px;}
+.copyright{font-size:20px;margin-left:15px;}
 .guide_con_waring{font-size:16px;overflow:hidden;width:100%;margin-top:30px;height:auto;line-height:30px;}
 
 .detail-frame{display:none;}
