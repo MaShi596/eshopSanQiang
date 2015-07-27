@@ -8,6 +8,7 @@ using System;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace Hidistro.UI.Web
 {
@@ -51,11 +52,18 @@ namespace Hidistro.UI.Web
 		}
 		private void BindImages(ProductInfo prductImageInfo)
 		{
+            string text2 = this.Page.Request.MapPath(Globals.ApplicationPath + "/image3D/" + prductImageInfo.ProductId.ToString() + "//" + "index.html");
 
-            this.productIn3D.Text = "3D图样";
-            this.productIn3D.NavigateUrl = Globals.ApplicationPath + "/image3D/" + prductImageInfo.ProductId.ToString() + "//" + "index.html";//Utils.ApplicationPath + "/Product3D.aspx?ProductId=" + prductImageInfo.ProductId;
-           
-
+            if (File.Exists(text2))
+            {
+                this.productIn3D.Text = "3D图样";
+                this.productIn3D.NavigateUrl = Globals.ApplicationPath + "/image3D/" + prductImageInfo.ProductId.ToString() + "//" + "index.html";//Utils.ApplicationPath + "/Product3D.aspx?ProductId=" + prductImageInfo.ProductId;
+            }
+            else
+            {
+                this.productIn3D.Text = "";
+            }
+            
             this.productName.Text = prductImageInfo.ProductName;
 			this.productName.NavigateUrl = Utils.ApplicationPath + "/ProductDetails.aspx?ProductId=" + prductImageInfo.ProductId;
 
