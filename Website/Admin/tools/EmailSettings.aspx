@@ -14,7 +14,7 @@
 <div class="formitem">
 <div class="emailhead">
 <p>选择ASP.NET邮件组件方式进行正确设置，用以开通自动向用户发送如注册、订单付款等邮件</p>
-<p>如果您需要经常面向大量用户邮箱进行邮件群发，建议你开通更高品质的<font style="color:Red">EDM邮件营销服务。</font><a href="http://zzfw.hishop.com.cn/edm/
+<p>如果您需要经常面向大量用户邮箱进行邮件群发，建议你开通更高品质的<font style="color:Red">EDM邮件营销服务。</font><a href="#
 " target="_blank" >点此开通</a></p>
 </div>
           <ul id="pluginContainer" style="margin:10px 0px;">

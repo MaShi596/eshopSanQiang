@@ -79,7 +79,7 @@
                  <asp:HyperLink runat="server" ID="hlinkAdminDefault" Text="即时营业信息" />
              </span>
              <p>欢迎您，<asp:Label ID="lblUserName" runat="server"></asp:Label> [<strong><asp:HyperLink runat="server" ID="hlinkLogout" Text="退出" /></strong>]
-             <a href="http://service.hishop.com.cn" target="_blank"> 客户中心</a>-<a href="http://www.shopefx.com/Aboutus/contact.html" target="_blank">购买咨询</a>-<a href="http://www.shopefx.com/help/" target="_blank">帮助中心</a>-<asp:HyperLink runat="server" ID="hlinkService" Text="增值服务" /></p>
+             <a href="#" target="_blank"> 客户中心</a>-<a href="#" target="_blank">购买咨询</a>-<a href="#" target="_blank">帮助中心</a>-<asp:HyperLink runat="server" ID="hlinkService" Text="增值服务" /></p>
              </div>
 	    </div>
         <!--主菜单-->        

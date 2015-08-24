@@ -9,7 +9,7 @@
 				1、您登录已经超时。<br />
 				2、URL非法。<br />
 				3、重复的操作，或者当前操作不可用。<br />
-				<a href="http://bbs.hishop.com.cn" target="_blank">以上都不是？请到易分销官方网站或交流社区寻求帮助！</a>
+				
 			</div>
 		</div>
 	  </div>
